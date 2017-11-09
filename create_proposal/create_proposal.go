@@ -1,7 +1,7 @@
 /*****Project ChainDaaS - Phase0 - SRC - UI1 for Proposal Entry ***/
-/*** Last updated on 3rd Nov 2017 by Abhishek Kumar ***/
 /*** github link :: https://github.com/abhi-005/Phase0ChainCode/create_proposal/ ***/
 /*** File name create_proposal.go ***/
+/*** v1.1 changed for Azure deployment 9th Nov 2017 by Abhishek Kumar ***/
 
 package main
 
