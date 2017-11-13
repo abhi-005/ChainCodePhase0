@@ -160,7 +160,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	serial_no :=args[13]
 	//build the Form json string manually
 	input := 	`{`+
-		`serial_no": "` + serial_no + `" , `+
+		`"serial_no": "` + serial_no + `" , `+
 		`"proposal_id": "` + proposal_id + `" , `+
 		`"purchase_order_id": "` + purchase_order_id + `" , `+ 
 		`"work_order_ref": "` + work_order_ref + `" , `+
