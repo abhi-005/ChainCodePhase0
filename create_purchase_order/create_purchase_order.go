@@ -183,7 +183,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 		fmt.Println("input: " + input)
 		fmt.Print("input in bytes array: ")
 		fmt.Println([]byte(input))
-	err = stub.PutState(purchase_order_id, []byte(input))									//store Form with FAA_formNumber as key
+	err = stub.PutState(serial_no, []byte(input))					//store Form with Serial_no as key
 	if err != nil {
 		return nil, err
 	}
