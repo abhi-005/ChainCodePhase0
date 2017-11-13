@@ -158,7 +158,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	input := 	`{`+
 		`"proposal_id": "` + proposal_id + `" , `+
 		`"purchase_order_id": "` + purchase_order_id + `" , `+ 
-		`"work_order_ref": "` + work_order_ref + `"`+
+		`"work_order_ref": "` + work_order_ref + `" , `+
 	        `"manufacturer_code": "` + manufacturer_code + `" , `+ 
 	
 	
