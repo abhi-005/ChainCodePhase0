@@ -22,7 +22,8 @@ type ManagePurchaseOrder struct {
 var approved_purchase_order_entry = "approved_purchase_order_entry"				//name for the key/value that will store a list of all known  Tier3 Form
 
 type purchase_order struct{ 
-								// Attributes of a Form 
+								// Attributes of a Purchase Form 
+	serial_no string `json:"serial_no"`
 	proposal_id string `json:"proposal_id"`	
 	purchase_order_no string `json:"purchase_order_no"`
 	work_order_ref string `json:"work_oder_ref"`
@@ -124,7 +125,7 @@ func (t *ManagePurchaseOrder) Query(stub shim.ChaincodeStubInterface, function s
 // ============================================================================================================================
 func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var err error
-	if len(args) != 13 {
+	if len(args) != 14 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 13 ")
 	}
 	fmt.Println("Creating a new Form for proposal id ")
@@ -154,8 +155,11 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	accessary_qty := args[10]
 	total_qty := args[11]
 	status := args[12]	
+	
+	serial_no :=args[13]
 	//build the Form json string manually
 	input := 	`{`+
+		`serial_no": "` + serial_no + `" , `+
 		`"proposal_id": "` + proposal_id + `" , `+
 		`"purchase_order_id": "` + purchase_order_id + `" , `+ 
 		`"work_order_ref": "` + work_order_ref + `" , `+
@@ -197,7 +201,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	fmt.Print("purchase_order_id_FormIndex after unmarshal..before append: ")
 	fmt.Println(purchase_order_id_FormIndex)
 	//append
-	purchase_order_id_FormIndex = append(purchase_order_id_FormIndex, purchase_order_id)									//add Form transID to index list
+	purchase_order_id_FormIndex = append(purchase_order_id_FormIndex, serial_no)									//add Form transID to index list
 	fmt.Println("! Purchase Order  Form index after appending po id: ", purchase_order_id_FormIndex)
 	jsonAsBytes, _ := json.Marshal(purchase_order_id_FormIndex)
 	fmt.Print("jsonAsBytes: ")
@@ -260,7 +264,7 @@ func (t *ManagePurchaseOrder) get_all_purchase_order_data(stub shim.ChaincodeStu
 }
 
 
-
+/*
 func (t *ManagePurchaseOrder) get_all_purchase_order_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	
 	var jsonPurchaseResp,errResp string
@@ -304,3 +308,4 @@ func (t *ManagePurchaseOrder) get_all_purchase_order_id(stub shim.ChaincodeStubI
 	fmt.Println("Fetched All PO ID successfully.")
 	return []byte(jsonPurchaseResp), nil
 }
+*/
