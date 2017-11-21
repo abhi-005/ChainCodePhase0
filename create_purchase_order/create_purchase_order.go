@@ -1,7 +1,6 @@
 /***** Project ChainDaaS - Phase0 - SRC - UI1 for Creation Purchase Order ***/
-/*** Last updated on 16th Nov 2017 15:00 pm by Abhishek Kumar ***/
-/*** github link :: https://github.com/abhi-005/Phase0ChainCode/create_purchase_order/ ***/
-/*** File name create_purchase_order.go ***/
+/*** Abhishek Kumar ***/
+
 
 package main
 
@@ -23,22 +22,29 @@ var approved_purchase_order_entry = "approved_purchase_order_entry"				//name fo
 
 type purchase_order struct{ 
 								// Attributes of a Purchase Form 
-	serial_no string `json:"serial_no"`
+								
+								
+	
+	
+	
+	unique_proposal_purchase_id string `json:"unique_proposal_purchase_id"`								
 	proposal_id string `json:"proposal_id"`	
-	purchase_order_no string `json:"purchase_order_no"`
-	work_order_ref string `json:"work_oder_ref"`
-	manufacturer_code string `json:"manufacturer_code"`
-	
+	purchase_order_no string `json:"purchase_order_no"`	
 	sales_order_no string `json:"sales_order_no"`
-	order_date string `json:"order_date"`
-	egiss_company string `json:"egiss_company"`
-	
-	ship_to_post_code string `json:"ship_to_post_code"`
+	ship_to_country_code string `json:"ship_to_country_code_code"`
 	ship_to_city string `json:"ship_to_city"`
-	qty string `json:"qty"`
-	accessary_qty string `json:"accessary_qty"`
-	total_qty string `json:"total_qty"`
+	ship_to_post_code string `json:"ship_to_post_code"`
+	order_date string `json:"order_date"`
+	manufacturer_code string `json:"manufacturer_code"`
+	item_category string `json:"item_category"`
+	item_no string `json:"item_no"`
+	quantity string `json:"quantity"`
+	egiss_company string `json:"egiss_company"`
 	status string `json:"status"`
+	
+	
+	
+	
 	
 	
 }
@@ -110,11 +116,9 @@ func (t *ManagePurchaseOrder) Query(stub shim.ChaincodeStubInterface, function s
 	// Handle different functions
 	if function == "get_all_purchase_order_data" {													//Read all Forms
 		return t.get_all_purchase_order_data(stub, args)
-	} /*
-	  else if function == "get_all_purchase_order_id" {													//Read all Forms
+	} else if function == "get_all_purchase_order_id" {													//Read all Forms
 		return t.get_all_purchase_order_id(stub, args)
-	} */
-
+	  }
 	fmt.Println("query did not find func: " + function)				//error
 	jsonResp := "Error : Received unknown function query: "+ function 
 	return nil, errors.New(jsonResp)
@@ -139,51 +143,45 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	
 	
 	
-	proposal_id := args[0]
-	purchase_order_id := args[1]
-	work_order_ref := args[2]
-	manufacturer_code := args[3]
-	
-	sales_order_no := args[4]
-	order_date := args[5]
-	egiss_company := args[6]
 	
 	
+	unique_proposal_purchase_id :=args[0]
+	proposal_id := args[1]
+	purchase_order_no := args[2]
+	sales_order_no := args[3]
+	ship_to_country_code := args[4]
+	ship_to_city := args[5]
+	ship_to_post_code := args[6]
+	order_date := args[7]
+	manufacturer_code := args[8]
+	item_category :=args[9]
+	item_no :=args[10]
+	quantity := args[11]
+	egiss_company := args[12]
+	status := args[13]	
 	
-	ship_to_post_code := args[7]
-	ship_to_city := args[8]
-	qty := args[9]
-	accessary_qty := args[10]
-	total_qty := args[11]
-	status := args[12]	
-	
-	serial_no :=args[13]
 	//build the Form json string manually
 	input := 	`{`+
-		`"serial_no": "` + serial_no + `" , `+
+		`"unique_proposal_purchase_id": "` + unique_proposal_purchase_id + `" , `+
 		`"proposal_id": "` + proposal_id + `" , `+
-		`"purchase_order_id": "` + purchase_order_id + `" , `+ 
-		`"work_order_ref": "` + work_order_ref + `" , `+
-	        `"manufacturer_code": "` + manufacturer_code + `" , `+ 
-	
-	
-	        `"sales_order_no": "` + sales_order_no + `" , `+ 
-		`"order_date": "` + order_date + `" , `+ 
-		`"egiss_company": "` + egiss_company + `" , `+ 
-	
-		`"ship_to_post_code": "` + ship_to_post_code + `" , `+ 
+		`"purchase_order_no": "` + purchase_order_no + `" , `+ 
+		`"sales_order_no": "` + sales_order_no + `" , `+ 
+		`"ship_to_country_code": "` + ship_to_country_code + `" , `+ 
 		`"ship_to_city": "` + ship_to_city + `" , `+ 
-		`"qty": "` + qty + `" , `+ 
-		`"accessary_qty": "` + accessary_qty + `" , `+ 
-		`"total_qty": "` + total_qty + `" , `+ 
+		`"ship_to_post_code": "` + ship_to_post_code + `" , `+
+		`"order_date": "` + order_date + `" , `+ 
+		`"manufacturer_code": "` + manufacturer_code + `" , `+ 
+		`"item_category": "` + item_category + `" , `+
+		`"item_no": "` + item_no + `" , `+
+		`"quantity": "` + quantity + `" , `+
+		`"egiss_company": "` + egiss_company + `" , `+ 
 		`"status": "` + status + `"` +	
-	
 		`}`
 	
 		fmt.Println("input: " + input)
 		fmt.Print("input in bytes array: ")
 		fmt.Println([]byte(input))
-	err = stub.PutState(serial_no, []byte(input))					//store Form with Serial_no as key
+	err = stub.PutState(unique_proposal_purchase_id, []byte(input))					//store Form with unique_proposal_purchase_id as key
 	if err != nil {
 		return nil, err
 	}
@@ -202,7 +200,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	fmt.Print("purchase_order_id_FormIndex after unmarshal..before append: ")
 	fmt.Println(purchase_order_id_FormIndex)
 	//append
-	purchase_order_id_FormIndex = append(purchase_order_id_FormIndex, serial_no)									//add Form transID to index list
+	purchase_order_id_FormIndex = append(purchase_order_id_FormIndex, unique_proposal_purchase_id)									//add Form transID to index list
 	fmt.Println("! Purchase Order  Form index after appending po id: ", purchase_order_id_FormIndex)
 	jsonAsBytes, _ := json.Marshal(purchase_order_id_FormIndex)
 	fmt.Print("jsonAsBytes: ")
@@ -265,7 +263,6 @@ func (t *ManagePurchaseOrder) get_all_purchase_order_data(stub shim.ChaincodeStu
 }
 
 
-/*
 func (t *ManagePurchaseOrder) get_all_purchase_order_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	
 	var jsonPurchaseResp,errResp string
@@ -286,7 +283,7 @@ func (t *ManagePurchaseOrder) get_all_purchase_order_id(stub shim.ChaincodeStubI
 	fmt.Print("purchase_order_id_FormIndex : ")
 	fmt.Println(purchase_order_id_FormIndex)
 	// Proposal Data
-	jsonPurchaseResp = "{ "
+	jsonPurchaseResp = "{"
 	for i,val := range purchase_order_id_FormIndex{
 		fmt.Println(strconv.Itoa(i) + " - looking at " + val + " for all Purchase Order")
 		valueAsBytes, err := stub.GetState(val)
@@ -309,4 +306,3 @@ func (t *ManagePurchaseOrder) get_all_purchase_order_id(stub shim.ChaincodeStubI
 	fmt.Println("Fetched All PO ID successfully.")
 	return []byte(jsonPurchaseResp), nil
 }
-*/
