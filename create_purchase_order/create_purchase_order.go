@@ -1,5 +1,5 @@
 /***** Project ChainDaaS - Phase0 - SRC - UI1 for Creation Purchase Order ***/
-/*** Editted by Abhishek Kumar on 24th November 2017 ***/
+/*** Edited by Abhishek Kumar on 24th November 2017 ***/
 
 
 package main
