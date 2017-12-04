@@ -22,7 +22,6 @@ var approved_proposal_entry = "approved_proposal_entry"				//name for the key/va
 
 type proposal struct{
 
-// code updated by Santhosh on 20th Nov ===========Start===============       ///
 								// Attributes of a Form 
 	proposal_id string `json:"proposal_id"`	
 	region string `json:"region"`
@@ -41,7 +40,6 @@ type proposal struct{
 	
 	
 	
-	// code updated by Santhosh on 20th Nov ===========End===============       ///
 	
 }
 // ============================================================================================================================
