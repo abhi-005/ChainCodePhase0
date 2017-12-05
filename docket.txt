@@ -1,0 +1,290 @@
+ 1817  sudo kill -9 16834
+ 1818  cd work/src/github.com/abhi/
+ 1819  sudo node server1.js
+ 1820  screen -ls
+ 1821  cd ..
+ 1822  sudo mv -r main dev
+ 1823  sudo mv  main dev
+ 1824  sudo cp -r abhi main
+ 1825  sudo rm main.zip abhi.zip
+ 1826  sudo zip -r abhi.zip abhi
+ 1827  sudo zip -r dev.zip dev
+ 1828  sudo zip -r main.zip main
+ 1829  sudo rm -r san
+ 1830  cd abhi/
+ 1831  screen -ls
+ 1832  screen
+ 1833  screen -ls
+ 1834  cs ..
+ 1835  cd ..
+ 1836  cd main/
+ 1837  sudo node server.js
+ 1838  screen -ls
+ 1839  cd work/src/github.com/abhi/
+ 1840  sudo node server
+ 1841  screen -ls
+ 1842  cd ..
+ 1843  sudo rm -r main
+ 1844  cp -r abhi main
+ 1845  cd main/
+ 1846  sudo node server.js
+ 1847  screen -ls
+ 1848  cd work/src/github.com/
+ 1849  cd work/src/github.com/main/
+ 1850  sudo node server
+ 1851  cd ..
+ 1852  sudo rm main.zip
+ 1853  sudo zip -r main.zip main
+ 1854  cd abhi/
+ 1855  sudo node server.js
+ 1856  cd ..
+ 1857  sudo rm abhi.zip
+ 1858  sudo zip -r abhi.zip abhi
+ 1859  cd main/
+ 1860  sudo node server
+ 1861  screen -ls
+ 1862  cd ..
+ 1863  screen
+ 1864  cd work/src/github.com/
+ 1865  ls
+ 1866  sudo zip main2.zip main
+ 1867  sudo zip -r main2.zip main
+ 1868  cd main/
+ 1869  sudo node server
+ 1870  cd work/src/github.com/main/
+ 1871  sudo node server
+ 1872  sudo netstat -ntpl
+ 1873  sudo kill -9 18101
+ 1874  sudo node server
+ 1875  screen -r
+ 1876  screen -ls
+ 1877  screen
+ 1878  cd work/src/github.com/main/
+ 1879  sudo node server.js
+ 1880  cd work/src/github.com/main/
+ 1881  sudo node server
+ 1882  screen -ls
+ 1883  sudo node server
+ 1884  sudo node server.js
+ 1885  pwd
+ 1886  cd work/src/github.com/m
+ 1887  cd work/src/github.com/main/
+ 1888  sudo node server.js
+ 1889  sudo screen
+ 1890  docker -ps
+ 1891  docker -p
+ 1892  docker ps
+ 1893  ls
+ 1894  cd docker/
+ 1895  docker-compose -f docker-compose-1.yml up -d
+ 1896  cd ..
+ 1897  cd work/src/github.com/main/
+ 1898  mogod
+ 1899  nongo
+ 1900  mongo
+ 1901  mongod
+ 1902  sudo netstat -ntpl
+ 1903  cd work/src/github.com/abhi/
+ 1904  ls
+ 1905  mongod
+ 1906  use abhidb
+ 1907  show dbs
+ 1908  mongod --version
+ 1909  sudo service mongod start
+ 1910  sudo netstat -ntpl
+ 1911  use abhi
+ 1912  show dbs
+ 1913  sudo service mongodb stop
+ 1914  sudo service mongod stop
+ 1915  sudo netstat -ntpl
+ 1916  sudo service mongod start
+ 1917  sudo netstat -ntpl
+ 1918  show dbs
+ 1919  use myNewDatabase
+ 1920  use userdb
+ 1921  mongo --help
+ 1922  mongo --shell
+ 1923  mongo --version
+ 1924  sudo netstat -ntpl
+ 1925  clear
+ 1926  mongo --shell
+ 1927  docker
+ 1928  docker --version
+ 1929  docker images
+ 1930  docker ps
+ 1931  docker ps -a
+ 1932  docker ps
+ 1933  docker ps -a | grep hyperledger
+ 1934  cd work/src/github.com/
+ 1935  ls
+ 1936  sudo rm dev.zip dev1.zip dev2.zip
+ 1937  sudo rm -r dev dev1 dev2
+ 1938  sudo zip -r dev.zip abhi
+ 1939  sudo rm main.zip
+ 1940  cp -r abhi dev
+ 1941  screen -ls
+ 1942  sudo netstat -ntpl
+ 1943  screen -ls
+ 1944  ps aux
+ 1945  ps aux | grep node
+ 1946  docker image | grep hyper
+ 1947  docker images | grep hyper
+ 1948  ls
+ 1949  cd docker/
+ 1950  ls
+ 1951  vim docker-compose-1.yml
+ 1952  docker --help
+ 1953  docker info
+ 1954  docker ps
+ 1955  vim docker-compose-1.yml
+ 1956  sudo netstat -ntpl
+ 1957  vim docker-compose-1.yml
+ 1958  docker=-machine -ls
+ 1959  docker=-machine ls
+ 1960  docker-machine ls
+ 1961  docker --v
+ 1962  docker -v
+ 1963  docker images | grep busy
+ 1964  docker run busybox:1.24 echo "Hi Abhishek"
+ 1965  docker images | grep busy
+ 1966  docker run busybox:1.24 echo "Hi Abhishek"
+ 1967  docker ps | grep busy
+ 1968  docker ps -a | grep busy
+ 1969  ls
+ 1970  cd ..
+ 1971  docker run busybox:1.24
+ 1972  docker run busybox:1.24  ls \
+ 1973  docker run busybox:1.24  ls /
+ 1974  docker run -i -t busybox:1.24
+ 1975  docker ps -a | grep busy
+ 1976  screen -ls
+ 1977  sudo netstat -ntpl
+ 1978  e
+ 1979  docker info
+ 1980  docker inspect
+ 1981  docker history
+ 1982  docker history --help
+ 1983  history
+ 1984  docker ps
+ 1985  docker run -d busybox:1.24
+ 1986  docker ps
+ 1987  docker run -d busybox:1.24 sleep 5000
+ 1988  docker ps
+ 1989  docker run -d busybox:1.24 sleep 5
+ 1990  docker ps
+ 1991  docker run -d busybox:1.24 sleep 5
+ 1992  docker ps
+ 1993  docker run busybox:1.24 sleep 60
+ 1994  docker ps
+ 1995  docker images | grep busybox
+ 1996  docker ps | grep busybox
+ 1997  docker ps -a | grep busybox
+ 1998  docker run --name abhishek busybox:1.24 sleep 60
+ 1999  exit
+ 2000  history
+ 2001  docker ps -a | grep busybox
+ 2002  docker ps  | grep busybox
+ 2003  docker inspect 7990b4e0f6e5
+ 2004  docker images  | grep busybox
+ 2005  docker inspect 47bcc53f74dc
+ 2006  docker ps  | grep busybox
+ 2007  dcoker stop 7990b4e0f6e5
+ 2008  docker stop 7990b4e0f6e5
+ 2009  docker ps  | grep busybox
+ 2010  docker ps  -a | grep busybox
+ 2011  docker run -d  --name abhishekk busybox:1.24
+ 2012  docker ps  -a | grep busybox
+ 2013  docker run -d -it --name abhishekk busybox:1.24
+ 2014  docker run -d -it --name abhi busybox:1.24
+ 2015  docker ps  -a | grep busybox
+ 2016  docker run -d -it --name abhi busybox:1.24 /bin/bash
+ 2017  docker run -d -it --name batman  busybox:1.24 /bin/bash
+ 2018  docker ps  -a | grep busybox
+ 2019  docker stop ad57024c69f3
+ 2020  docker ps  -a | grep busybox
+ 2021  docker --rm ad57024c69f3
+ 2022  docker -rm ad57024c69f3
+ 2023  docker rm ad57024c69f3
+ 2024  docker ps  -a | grep busybox
+ 2025  docker rm 8ebe3b9235c2 0cc37fb4fb8d 9244065a1019 7e4bf0ba7c00  ea9b0d502be0 620a9d36a891 60a75445c7c8 904ccea3634a 12c1772ca61c
+ 2026  docker ps  -a | grep busybox
+ 2027  docker rm 2127659de43d b23ef8ea2648
+ 2028  docker ps  -a | grep busybox
+ 2029  docker info
+ 2030  docker images  |grep busybox
+ 2031  docker run debian:jessie
+ 2032  docker images  |grep debian
+ 2033  docker ps  |grep debian
+ 2034  docker ps -a  |grep debian
+ 2035  docker run -it debian:jessie
+ 2036  docker ps -a  |grep debian
+ 2037  docker run -it debian:jessie
+ 2038  docker ps -a  |grep debian
+ 2039  dcoker commit ee62c824910b abhi/debian:1.0
+ 2040  docker commit ee62c824910b abhi/debian:1.0
+ 2041  docker ps -a  |grep debian
+ 2042  docker images  |grep debian
+ 2043  docker run --name abhiGit -it abhi/debian
+ 2044  docker run --name abhiGit -it abhi/debian:1.0
+ 2045  docker images  |grep debian
+ 2046  docker ps -a  |grep debian
+ 2047  docker rm 9f0f7678371d ee62c824910b fba12da1175c 85eda5c995b4
+ 2048  docker ps -a  |grep debian
+ 2049  docker images  |grep debian
+ 2050  docker rm 183b1f10b0e1
+ 2051  docker --rm 183b1f10b0e1
+ 2052  docker rmi 183b1f10b0e1
+ 2053  docker images  |grep debian
+ 2054  docker ps -a  |grep debian
+ 2055  clear
+ 2056  docker images  |grep debian
+ 2057  docker ps -a  |grep debian
+ 2058  docker run -it 25fc9eb3417f
+ 2059  docker ps -a  |grep debian
+ 2060  docker ps   |grep debian
+ 2061  docker images  |grep debian
+ 2062  docker ps -a  |grep debian
+ 2063  docker run -it --name abhiX debian/jessie
+ 2064  docker ps -a  |grep debian
+ 2065  docker images  |grep debian
+ 2066  docker run -it --name abhiX debian/jessie:latest
+ 2067  docker run -it --name abhiX debian\jessie:latest
+ 2068  docker run -it debian:jessie
+ 2069  docker ps -a  |grep debian
+ 2070  docker run --name Batman-it debian:jessie
+ 2071  docker ps -a  |grep debian
+ 2072  docker run --name Batman -it debian:jessie
+ 2073  docker ps -a  |grep debian
+ 2074  docker rm 0d8e8925c023 5c196588befe
+ 2075  docker ps -a  |grep debian
+ 2076  docker images  |grep debian
+ 2077  docker ps -a  |grep debian
+ 2078  docker run --name Superman -it debian:jessie
+ 2079  docker ps -a  |grep debian
+ 2080  docker commit b610fe45bf58 abhi/debian:1.0
+ 2081  docker ps -a  |grep debian
+ 2082  docker images  |grep debian
+ 2083  docker run --name Aquaman -it abhi/debian:1.0
+ 2084  docker images  |grep debian
+ 2085  docker ps -a  |grep debian
+ 2086  history
+ubuntu@ip-172-31-8-24:~$  2065  docker images  |grep debian
+ 2067  docker run -it --name abhiX debian\jessie:latest
+ 2068  docker run -it debian:jessie
+ 2069  docker ps -a  |grep debian
+ 2070  docker run --name Batman-it debian:jessie
+ 2071  docker ps -a  |grep debian
+ 2072  docker run --name Batman -it debian:jessie
+ 2073  docker ps -a  |grep debian
+ 2074  docker rm 0d8e8925c023 5c196588befe
+ 2075  docker ps -a  |grep debian
+ 2076  docker images  |grep debian
+ 2077  docker ps -a  |grep debian
+ 2078  docker run --name Superman -it debian:jessie
+ 2079  docker ps -a  |grep debian
+ 2080  docker commit b610fe45bf58 abhi/debian:1.0
+ 2081  docker ps -a  |grep debian
+ 2082  docker images  |grep debian
+ 2083  docker run --name Aquaman -it abhi/debian:1.0
+ 2084  docker images  |grep debian
+ 2085  docker ps -a  |grep debian
