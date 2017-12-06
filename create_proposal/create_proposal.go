@@ -8,7 +8,7 @@ import (
 "encoding/json"
 
 "github.com/hyperledger/fabric/core/chaincode/shim"
-"github.com/hyperledger/fabric/core/util"
+//"github.com/hyperledger/fabric/core/util"
 )
 
 // Proposal example simple Chaincode implementation
