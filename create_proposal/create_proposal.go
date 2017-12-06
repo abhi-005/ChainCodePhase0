@@ -1,4 +1,4 @@
-//Last update on 21st nov by Santhosh
+//Last update on 06/12/2017 by Abhishek
 package main
 
 import (
@@ -8,7 +8,7 @@ import (
 "encoding/json"
 
 "github.com/hyperledger/fabric/core/chaincode/shim"
-//"github.com/hyperledger/fabric/core/util"
+"github.com/hyperledger/fabric/core/util"
 )
 
 // Proposal example simple Chaincode implementation
@@ -19,7 +19,7 @@ var approved_proposal_entry = "approved_proposal_entry"				//name for the key/va
 
 type proposal struct{
 
-// code updated by Santhosh on 20th Nov ===========Start===============       ///
+// code updated by Abhishek on 20th Nov ===========Start===============       ///
 								// Attributes of a Form 
 	proposal_id string `json:"proposal_id"`	
 	region string `json:"region"`
@@ -38,7 +38,7 @@ type proposal struct{
 	
 	
 	
-	// code updated by Santhosh on 20th Nov ===========End===============       ///
+	// code updated by Abhishek on 20th Nov ===========End===============       ///
 	
 }
 // ============================================================================================================================
