@@ -1,8 +1,4 @@
-/*****Project ChainDaaS - Phase0 - SRC - UI1 for Purchase Entry ***/
-/*** github link :: https://github.com/abhi-005/Phase0ChainCode/create_proposal/ ***/
-/*** File name create_proposal.go ***/
-/*** v1.1 changed for Azure deployment 16th Nov 2017 @ 15:15 by Abhishek Kumar ***/
-
+//Last update on 21st nov by Santhosh
 package main
 
 import (
@@ -10,7 +6,7 @@ import (
 "fmt"
 "strconv"
 "encoding/json"
-//"errors"
+
 "github.com/hyperledger/fabric/core/chaincode/shim"
 //"github.com/hyperledger/fabric/core/util"
 )
@@ -22,19 +18,18 @@ type ManageProposal struct {
 var approved_proposal_entry = "approved_proposal_entry"				//name for the key/value that will store a list of all known  Tier3 Form
 
 type proposal struct{
-								
+
+// code updated by Santhosh on 20th Nov ===========Start===============       ///
+								// Attributes of a Form 
 	proposal_id string `json:"proposal_id"`	
 	region string `json:"region"`
 	country string `json:"country"`
 	proposal_type string `json:"proposal_type"`
-	
-  
-	proposal_date string `json:"proposal_date"`
-	approval_date string `json:"approval_date"`
+	initiated_on string `json:"initiated_on"`
+	euc_reviewed_on string `json:"euc_reviewed_on"`
+	shared_with_sd_and_a_on string `json:"shared_with_sd_and_a_on"`
+	approval_on string `json:"approval_on"`
 	shared_with_procurement_team_on string `json:"shared_with_procurement_team_on"`
-	
-  
-	approver string `json:"approver"`
 	number_of_tasks_covered string `json:"number_of_tasks_covered"`
 	device_qty string `json:"device_qty"`
 	accessary_periperal_qty string `json:"accessary_periperal_qty"`
@@ -42,9 +37,12 @@ type proposal struct{
 	status string `json:"status"`
 	
 	
+	
+	// code updated by Santhosh on 20th Nov ===========End===============       ///
+	
 }
 // ============================================================================================================================
-// Main - start the chaincode for Proposal Form management
+// Main - start the chaincode for Form management
 // ============================================================================================================================
 func main() {			
 	err := shim.Start(new(ManageProposal))
@@ -77,7 +75,10 @@ func (t *ManageProposal) Init(stub shim.ChaincodeStubInterface, function string,
 		return nil, err
 	}
 	return nil, nil
-} 
+}
+// ============================================================================================================================
+// Run - Our entry Formint for Invocations - [LEGACY] obc-peer 4/25/2016
+// ============================================================================================================================
 func (t *ManageProposal) Run(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	fmt.Println("run is running " + function)
 	return t.Invoke(stub, function, args)
@@ -123,7 +124,10 @@ func (t *ManageProposal) Query(stub shim.ChaincodeStubInterface, function string
 // ============================================================================================================================
 func (t *ManageProposal) create_proposal_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var err error
-	if len(args) != 13 {
+	
+	
+	// code updated by Santhosh on 20th Nov ===========Start===============       ///
+	if len(args) != 14 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 9")
 	}
 	fmt.Println("Creating a new Form for proposal id ")
@@ -143,18 +147,21 @@ func (t *ManageProposal) create_proposal_id(stub shim.ChaincodeStubInterface, ar
 	country := args[2]
 	proposal_type := args[3]
 	
-	proposal_date := args[4]
-	approval_date := args[5]
-	shared_with_procurement_team_on := args[6]
+	initiated_on := args[4]
+	euc_reviewed_on := args[5]
+	shared_with_sd_and_a_on := args[6]
+	approval_on := args[7]
+	
+	shared_with_procurement_team_on := args[8]
 	
 	
 	
-	approver := args[7]
-	number_of_tasks_covered := args[8]
-	device_qty := args[9]
-	accessary_periperal_qty := args[10]
-	total_qty := args[11]
-	status := args[12]
+
+	number_of_tasks_covered := args[9]
+	device_qty := args[10]
+	accessary_periperal_qty := args[11]
+	total_qty := args[12]
+	status := args[13]
 	
 		
 	//build the Form json string manually
@@ -162,14 +169,20 @@ func (t *ManageProposal) create_proposal_id(stub shim.ChaincodeStubInterface, ar
 		`"proposal_id": "` + proposal_id + `" , `+
 		`"region": "` + region + `" , `+ 
 		`"country": "` + country + `" , `+
-	  `"proposal_type": "` + proposal_type + `" , `+ 
-	
-	
-	  `"proposal_date": "` + proposal_date + `" , `+ 
-		`"approval_date": "` + approval_date + `" , `+ 
+	        `"proposal_type": "` + proposal_type + `" , `+ 
+				
+				
+				`"initiated_on": "` + initiated_on + `" , `+ 
+			
+	        `"euc_reviewed_on": "` + euc_reviewed_on + `" , `+ 
+			`"shared_with_sd_and_a_on": "` + shared_with_sd_and_a_on + `" , `+ 
+			
+			
+			
+		`"approval_on": "` + approval_on + `" , `+ 
 		`"shared_with_procurement_team_on": "` + shared_with_procurement_team_on + `" , `+ 
 	
-		`"approver": "` + approver + `" , `+ 
+		
 		`"number_of_tasks_covered": "` + number_of_tasks_covered + `" , `+ 
 		`"device_qty": "` + device_qty + `" , `+ 
 		`"accessary_periperal_qty": "` + accessary_periperal_qty + `" , `+ 
