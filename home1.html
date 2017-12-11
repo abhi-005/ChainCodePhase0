@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">	
+	 <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+	 
+	 <link rel="stylesheet" type="text/css" href="/css/w3.css">
+	 <script src = "/script/jquery.min.js"> </script>
+	 <script src = "/script/bootstrap.min.js"> </script>
+	 <script src = "/script/angular.min.js"> </script>
+	  <script src = "/script/angular-route.js"> </script>
+	  
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.divcenter {
+    position: absolute;
+    left: 0;
+    top: 0%;
+    width: 100%;
+    font-size: 18px;
+}
+
+img { 
+    width: 100%;
+    opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" style="border:3px red solid ;max-height:600px">
+
+	  <div class="item active" >
+        <img src="img2.jpg" alt="Chicago" >
+        
+      </div>
+	  
+      <div class="item">
+        <img class="img-responsive" src="img1.jpg" alt="Los Angeles" style="opacity:1;background-size: cover;">
+        
+      </div>
+
+     
+    
+      <div class="item">
+        <img src="img3.jpg" alt="New York">
+        
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+   
+  </div>
+
+
+
+  <div class="w3-container divcenter" style = "padding-left:20%;padding-right:20%;padding-top:5%;border:0px black solid">
+		  
+		  
+			<br><br>
+		  <div class="row" style="border : 0px red solid;padding:left:30%">
+		  
+				<div class = "col-lg-3 col-md-3 col-xs-0"></div>
+				<div class = "col-lg-6 col-md-6 col-xs-12" style="border : 0px black solid;background-color:#0073e6; align:center">
+					
+					  <div class="w3-container" style = "background-color:#0073e6;border : 0px black solid;width=100%;padding-left:0%">
+						  <h3 style="color:white;text-align:center">Sign In</h3>
+					  </div>
+						<br>
+					  <div style = "background-color:#0073e6;padding-left:0%;border : 0px green solid; align:center">
+						
+
+						<form class="w3-container" style = "border : 0px black solid;width=100%;padding-left:0%;align:center">
+						
+						
+							<div class="input-group w3-card-4"  style = "margin-left:15px;border : 0px black solid;width=100%;align:center">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+									<input type="text" class=" w3-input" placeholder="Username" name = "user_id" ng-model="user_id" style="width:100%;height:40px" required>
+							</div>
+							
+							<br><br>
+							  
+							<div class="input-group w3-card-4" style = "margin-left:15px;border : 0px black solid;width=100%;align:center">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+									<input type="password" class=" w3-input"  placeholder="Password" name = "user_password" ng-model="user_password" style="width:100%;height:40px" required>
+							</div>
+							
+							<br>
+							  
+							<!-- <div class="input-group " style="border : 0px black solid; width:100%;" > -->
+							
+							<div class="input-group" style="border : 0px black solid; width:100%; margin-left:15px">
+								<input type="checkbox"  class="w3-check" style="border : 0px green solid">
+								  <span style="color:white"> Keep me logged in</span>
+							</div>
+							
+							<br>
+							<div class="input-group" ng-click="signinbutton()" style="border : 0px black solid; width:100%; margin-left:15px">
+								<button type="submit" class="btn btn-default w3-btn w3-green w3-card-4" style="border : 0px green solid;width:97%;height:40px">
+								  <span class="glyphicon glyphicon-send"></span> Sign In
+								</button>
+							</div>
+							
+							<br>
+							<div class="w3-container" style = "background-color:#0073e6;border : 0px black solid;width=100%;padding-left:10%">
+							  <h5 style="color:white;text-align:center">Forgot Password ?</h5>
+						  </div>
+							
+							
+							
+												
+							<br>
+								
+								
+							<!-- </div>						 -->
+							  
+							  
+						  
+						</form>
+					  </div>
+				</div>
+				<div class = "col-lg-3 col-md-3 col-xs-0"></div>
+		  
+				
+			 </div>
+				  
+		  </div>
+		  
+</div>
+
+</body>
+</html>
