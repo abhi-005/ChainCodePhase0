@@ -37,20 +37,17 @@
 			
 		}
 		.navbar-inverse .navbar-nav > li > a {
-		  color: white;
+		   color: white;
 		   font-weight: bold;
 		  
 		}
 		
 		.navbar-inverse .navbar-nav > li > a:hover {
 		  color: black;
-		  background-color : red;
+		  background-color : lightblue;
 		}
 		
-		.navbar-inverse .navbar-nav > li > a:focus {
-		  color: black;
-		  background-color : green;
-		}
+		
 		
 	</style>
 	
@@ -72,9 +69,9 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						
-						<li><a  href="#proposal">Proposal Entry</a></li>
-						<li><a  href="#upload">PO Upload </a></li>
-						<li><a  href="#dashboard">Proposal Dashboard</a></li>
+						<li class="navx"><a   id="pro_entry "href="#proposal" onclick="changeBackground_pro_entry()">Proposal Entry</a></li>
+						<li class="navx"><a   id="po_upload" href="#upload" onclick="changeBackground_po_upload()">PO Upload </a></li>
+						<li class="navx"><a   id="dashboard" href="#dashboard" onclick="changeBackground_dashboard()">Proposal Dashboard</a></li>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
@@ -88,7 +85,34 @@
 				
 	    </div>
 </div>
+<script>
+function changeBackground_pro_entry() {
 
+var x = document.getElementsByClassName("navx");
+x[0].style.backgroundColor = "lightblue";
+x[1].style.backgroundColor = "#354497";
+x[2].style.backgroundColor = "#354497";
+
+}
+
+function changeBackground_po_upload() {
+
+var x = document.getElementsByClassName("navx");
+x[0].style.backgroundColor = "#354497";
+x[1].style.backgroundColor = "lightblue";
+x[2].style.backgroundColor = "#354497";
+
+}
+
+function changeBackground_dashboard() {
+
+var x = document.getElementsByClassName("navx");
+x[0].style.backgroundColor = "#354497";
+x[1].style.backgroundColor = "#354497";
+x[2].style.backgroundColor = "lightblue";
+
+}
+</script>
  
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
