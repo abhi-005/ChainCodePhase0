@@ -1,5 +1,5 @@
 /***** Project ChainDaaS - Phase0 - SRC - UI1 for Creation Purchase Order ***/
-/*** Last updated on 29th Nov 2017  by Santhosh Balaji ***/
+/*** Last updated on 24th April 2018  by Abhishek Kumar ***/
 
 
 package main
@@ -27,17 +27,29 @@ type purchase_order struct{
 	
 	unique_proposal_purchase_id string `json:"unique_proposal_purchase_id"`								
 	ProposalID string `json:"ProposalID"`	
-	Location string `json:"Location"`	
-	City string `json:"City"`
+	Location string `json:"Location"`
 	PartNumber string `json:"PartNumber_code"`
+	DemandQuantity string `json:"DemandQuantity"`
+	City string `json:"City"`	
 	PartDescription string `json:"PartDescription"`
 	WiproOrderReference string `json:"WiproOrderReference"`
 	Vendor string `json:"Vendor"`
-	VendorSO string `json:"VendorSO"`
+	OrderReceiptDate string `json:"OrderReceiptDate"`
+	VendorSalesOrderNumber string `json:"VendorSalesOrderNumber"`
 	OrderDate string `json:"OrderDate"`
 	OrderedQuantity string `json:"OrderedQuantity"`
-	Status string `json:"Status"`
-
+	OrderStatus string `json:"OrderStatus"`
+	
+	
+	
+	Remarks string `json:"Remarks"`
+	DeliverySequenceNumber string `json:"DeliverySequenceNumber"`
+	EstimatedShipDate string `json:"EstimatedShipDate"`
+	ActualShipDate string `json:"ActualShipDate"`
+	EstimatedDeliveryDate string `json:"EstimatedDeliveryDate"`
+	ActualDeliveryDate string `json:"ActualDeliveryDate"`
+	ShippedQuantity string `json:"ShippedQuantity"`
+	DeliveredQuantity string `json:"DeliveredQuantity"`
 	
 	
 	
@@ -149,31 +161,57 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	unique_proposal_purchase_id :=args[0]
 	ProposalID := args[1]
 	Location := args[2]
-	City := args[3]
-	PartNumber := args[4]
-	PartDescription := args[5]
-	WiproOrderReference := args[6]
-	Vendor := args[7]
-	VendorSO := args[8]
-	OrderDate :=args[9]
-	OrderedQuantity :=args[10]
-	Status := args[11]
+	PartNumber := args[3]
+	DemandQuantity := args[4]
+	City := args[5]
+	PartDescription := args[6]
+	WiproOrderReference := args[7]
+	Vendor := args[8]
+	OrderReceiptDate := args[9]
+	VendorSalesOrderNumber := args[10]
+	OrderDate :=args[11]
+	OrderedQuantity :=args[12]
+	OrderStatus := args[13]
 	
+	
+	Remarks := args[14]
+	DeliverySequenceNumber := args[15]
+	EstimatedShipDate := args[16]
+	ActualShipDate := args[17]
+	EstimatedDeliveryDate := args[18]
+	ActualDeliveryDate := args[19]
+	ShippedQuantity := args[20]
+	DeliveredQuantity := args[21]
 	
 	//build the Form json string manually
 	input := 	`{`+
 		`"unique_proposal_purchase_id": "` + unique_proposal_purchase_id + `" , `+
 		`"ProposalID": "` + ProposalID + `" , `+
-		`"Location": "` + Location + `" , `+ 
-		`"City": "` + City + `" , `+ 
+		`"Location": "` + Location + `" , `+ 		
 		`"PartNumber": "` + PartNumber + `" , `+ 
+		`"DemandQuantity": "` + DemandQuantity + `" , `+ 
+		`"City": "` + City + `" , `+ 
+	
 		`"PartDescription": "` + PartDescription + `" , `+ 
 		`"WiproOrderReference": "` + WiproOrderReference + `" , `+
 		`"Vendor": "` + Vendor + `" , `+ 
-		`"VendorSO": "` + VendorSO + `" , `+ 
+		`"OrderReceiptDate": "` + OrderReceiptDate + `" , `+ 
+		`"VendorSalesOrderNumber": "` + VendorSalesOrderNumber + `" , `+
 		`"OrderDate": "` + OrderDate + `" , `+
-		`"OrderedQuantity": "` + OrderedQuantity + `" , `+
-		`"Status": "` + Status + `"` +	
+		`"OrderedQuantity": "` + OrderedQuantity + `"` +
+	
+	
+		`"OrderStatus": "` + OrderStatus + `" , `+ 
+		`"Remarks": "` + Remarks + `" , `+ 
+		`"DeliverySequenceNumber": "` + DeliverySequenceNumber + `" , `+ 
+		`"EstimatedShipDate": "` + EstimatedShipDate + `" , `+ 
+		`"ActualShipDate": "` + ActualShipDate + `" , `+ 
+		`"EstimatedDeliveryDate": "` + EstimatedDeliveryDate + `" , `+ 
+		`"ActualDeliveryDate": "` + ActualDeliveryDate + `" , `+ 
+		`"ShippedQuantity": "` + ShippedQuantity + `" , `+ 
+		`"DeliveredQuantity": "` + DeliveredQuantity + `" , `+ 
+		
+	
 		`}`
 	
 		fmt.Println("input: " + input)
