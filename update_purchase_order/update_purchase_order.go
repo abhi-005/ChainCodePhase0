@@ -139,7 +139,7 @@ func (t *ManagePurchaseOrder) Query(stub shim.ChaincodeStubInterface, function s
 // ============================================================================================================================
 func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var err error
-	if len(args) != 12 {
+	if len(args) != 22 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 12 ")
 	}
 	fmt.Println("Creating a new Form for proposal id ")
