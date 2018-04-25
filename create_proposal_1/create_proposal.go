@@ -241,7 +241,7 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	jsonAsBytes, _ := json.Marshal(purchase_order_id_FormIndex)
 	fmt.Print("jsonAsBytes: ")
 	fmt.Println(jsonAsBytes)
-	err = stub.PutState(approved_purchase_order_entry, jsonAsBytes)						//store name of Form
+	err = stub.PutState(approved_purchase_order_entry, jsonAsBytes)						
 	if err != nil {
 		return nil, err
 	}
@@ -252,7 +252,93 @@ func (t *ManagePurchaseOrder) create_purchase_order_id(stub shim.ChaincodeStubIn
 	
 }
 
-
+func (t *ManagePurchaseOrder) update__purchase_order_id(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	var jsonResp string
+	var err error
+	fmt.Println("Updating Purchase Order")
+	
+	unique_proposal_purchase_id := args[0]
+	unique_proposal_purchase_idAsBytes, err := stub.GetState(unique_proposal_purchase_id)									//get the Shipment for the specified ShipmentId from chaincode state
+	if err != nil {
+		jsonResp = "{\"Error\":\"Failed to get state for " + unique_proposal_purchase_id + "\"}"
+		return nil, errors.New(jsonResp)
+	}
+	fmt.Print("unique_proposal_purchase_idAsBytes in update Purchase")
+	fmt.Println(unique_proposal_purchase_idAsBytes);
+	res := Purchase{}
+	json.Unmarshal(ShipmentAsBytes, &res)
+	if res.unique_proposal_purchase_id == unique_proposal_purchase_id{
+		fmt.Println("Order found with unique_proposal_purchase_id : " + unique_proposal_purchase_id)
+		fmt.Println(res);
+	}
+	
+	//unique_proposal_purchase_id :=args[0]
+	ProposalID := args[1]
+	Location := args[2]
+	PartNumber := args[3]
+	DemandQuantity := args[4]
+	City := args[5]
+	PartDescription := args[6]
+	WiproOrderReference := args[7]
+	Vendor := args[8]
+	OrderReceiptDate := args[9]
+	VendorSalesOrderNumber := args[10]
+	OrderDate :=args[11]
+	OrderedQuantity :=args[12]
+	OrderStatus := args[13]
+	
+	
+	Remarks := args[14]
+	DeliverySequenceNumber := args[15]
+	EstimatedShipDate := args[16]
+	ActualShipDate := args[17]
+	EstimatedDeliveryDate := args[18]
+	ActualDeliveryDate := args[19]
+	ShippedQuantity := args[20]
+	DeliveredQuantity := args[21]
+	
+	//build the Form json string manually
+	input := 	`{`+
+		`"unique_proposal_purchase_id": "` + unique_proposal_purchase_id + `" , `+
+		`"ProposalID": "` + ProposalID + `" , `+
+		`"Location": "` + Location + `" , `+ 		
+		`"PartNumber": "` + PartNumber + `" , `+ 
+		`"DemandQuantity": "` + DemandQuantity + `" , `+ 
+		`"City": "` + City + `" , `+ 
+	
+		`"PartDescription": "` + PartDescription + `" , `+ 
+		`"WiproOrderReference": "` + WiproOrderReference + `" , `+
+		`"Vendor": "` + Vendor + `" , `+ 
+		`"OrderReceiptDate": "` + OrderReceiptDate + `" , `+ 
+		`"VendorSalesOrderNumber": "` + VendorSalesOrderNumber + `" , `+
+		`"OrderDate": "` + OrderDate + `" , `+
+		`"OrderedQuantity": "` + OrderedQuantity + `"` +
+	
+	
+		`"OrderStatus": "` + OrderStatus + `" , `+ 
+		`"Remarks": "` + Remarks + `" , `+ 
+		`"DeliverySequenceNumber": "` + DeliverySequenceNumber + `" , `+ 
+		`"EstimatedShipDate": "` + EstimatedShipDate + `" , `+ 
+		`"ActualShipDate": "` + ActualShipDate + `" , `+ 
+		`"EstimatedDeliveryDate": "` + EstimatedDeliveryDate + `" , `+ 
+		`"ActualDeliveryDate": "` + ActualDeliveryDate + `" , `+ 
+		`"ShippedQuantity": "` + ShippedQuantity + `" , `+ 
+		`"DeliveredQuantity": "` + DeliveredQuantity + `" , `+ 
+		
+	
+		`}`
+	
+		fmt.Println("input: " + input)
+		fmt.Print("input in bytes array: ")
+		fmt.Println([]byte(input))
+	
+		err = stub.PutState(unique_proposal_purchase_id, []byte(input))					//store Form with unique_proposal_purchase_id as key
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println("Purchase order updated successfully.")
+		return nil, nil
+}
 
 func (t *ManagePurchaseOrder) get_all_purchase_order_data(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	
