@@ -265,7 +265,7 @@ func (t *ManagePurchaseOrder) update__purchase_order_id(stub shim.ChaincodeStubI
 	}
 	fmt.Print("unique_proposal_purchase_idAsBytes in update Purchase")
 	fmt.Println(unique_proposal_purchase_idAsBytes);
-	res := Purchase{}
+	res := purchase_order{}
 	json.Unmarshal(unique_proposal_purchase_idAsBytes, &res)
 	if res.unique_proposal_purchase_id == unique_proposal_purchase_id{
 		fmt.Println("Order found with unique_proposal_purchase_id : " + unique_proposal_purchase_id)
