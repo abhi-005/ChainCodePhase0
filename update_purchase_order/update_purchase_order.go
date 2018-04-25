@@ -110,7 +110,7 @@ func (t *ManagePurchaseOrder) Invoke(stub shim.ChaincodeStubInterface, function 
 		return t.Init(stub, "init", args)
 	} else if function == "create_purchase_order_id" {											//create a new Form
 		return t.create_purchase_order_id(stub, args)
-	} else if function == "update__purchase_order_id" {											//create a new Form
+	} else if function == "update_purchase_order_id" {											//create a new Form
 		return t.update_purchase_order_id(stub, args)
 	} 
 	
